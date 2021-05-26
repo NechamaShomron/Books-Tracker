@@ -1,0 +1,19 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr mdbTableCol *ngFor="let book of bookList; let i = index" [attr.data-index]="i">
+            <td>{{i + 1}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.bookName}}</td>
+            <td>{{book.date | date: 'dd-MM-yyyy'}}</td>
+            <td>{{book.genre}}</td>
+            <td>{{book.rank}}</td>
+            <td>
+                <button id="delete" (click)="onDelete(book)">Delete</button>
+            </td>
+        </tr>
+    </tbody>

@@ -1,0 +1,49 @@
+.input-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h3 {
+    color: #014421;
+}
+
+.item {
+    height: 28px;
+    text-align: center;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 10px;
+}
+
+.newBook-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    text-align: center;
+    border-style: double;
+    width: 400px;
+    height: 380px;
+    background: white;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#add {
+    margin-top: 5px;
+    background-color: #014421;
+    cursor: pointer;
+    border: 0.9px solid black;
+    color: white;
+}
+
+#add:hover {
+    background-color: #ddd;
+    color: black;
+}

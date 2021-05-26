@@ -1,0 +1,27 @@
+<html>
+  <body>
+<div class="main">
+  <div class="col-md-6 col-sm-12">
+     <div class="login-form">
+        <form id = "formData" #userData = "ngForm">
+          <h2>Login</h2>
+           <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" name = "email" placeholder="email" ngModel email>
+           </div>
+           <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control"name = "password" placeholder="password" ngModel>
+           </div>
+           <button type="submit" class="btn btn-black" (click) = "onLogin(userData.value)">Login</button>          
+           <h5>{{messageConfirmation}}</h5>
+        </form>
+					Don't have an account?
+          <a href="/register" id="signUp" >Sign Up</a>
+          <br>
+          <a href="/forgotPassword" id="forgotPass"> Forgot your password?</a>
+     </div>
+  </div>
+</div>
+</body>
+</html>
