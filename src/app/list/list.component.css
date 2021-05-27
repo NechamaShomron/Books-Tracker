@@ -3,12 +3,12 @@ table {
     background-image: url('https://images.creativemarket.com/0.1.0/ps/8878765/300/200/m1/fpc/wm0/tcs9qcgy8kwra7lmttml13tp6no7f7dml83riminv1xx57zqwr2ds9k8p1e750bz-.jpg?1597233454&s=d2e34bc6099b1158ba45aa6095d52f8f');
     background-size: cover;
     background-repeat: no-repeat;
-    position: fixed;
     text-align: center;
-    border-style: double;
     margin-top: 10px;
     margin-left: 90px;
     width: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #delete {

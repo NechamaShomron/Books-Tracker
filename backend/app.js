@@ -12,6 +12,7 @@ var nodemailer = require('nodemailer');
 
 
 //connecting to our database
+//instead of 'process.env.DB_CONNECTION' ==> enter your mongoDB connection
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("Connected to database");
@@ -75,7 +76,7 @@ app.post('/login', (req, res) => {
 
         } else {
             let payload = { subject: existingUser._id }
-            let token = jwt.sign(payload, 'secretKey')
+            let token = jwt.sign(payload, process.env.SECRET_KEY)
             res.send({ token })
         }
     })
@@ -84,6 +85,8 @@ app.post('/login', (req, res) => {
 //getting userId from token
 function getId(req, res, next) {
     const token = req.headers.authorization.slice(7);
+    console.log(token);
+
     const decotedToken = jwt.decode(token);
     const userId = decotedToken.subject;
     return userId;
@@ -116,8 +119,9 @@ app.post('/add-book', (req, res, next) => {
 //send books to port 3000/books to show on the table in our front-end
 app.get('/books', async(req, res, next) => {
     const userId = getId(req, res, next);
-    const result = await Books.find({ userId: userId })
-    return res.json(result);
+    result = await Books.find({ userId: userId })
+    res.json(result);
+
 })
 
 //delete a book from our table
@@ -129,7 +133,7 @@ app.post('/delete-book', (req, res, next) => {
         if (err) {
             res.sendStatus(500);
         }
-        return JSON.parse(JSON.stringify(result));
+        res.sendStatus(200);
     })
 })
 
@@ -148,12 +152,12 @@ app.post('/forgotPassword', (req, res) => {
             var transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
-                    user: process.env.MY_EMAIL,
-                    pass: process.env.PASSWORD
+                    user: process.env.MY_EMAIL, //enter your email
+                    pass: process.env.PASSWORD //enter your password
                 }
             })
             var mailOptions = {
-                from: process.env.MY_EMAIL,
+                from: process.env.MY_EMAIL, //enter your email 
                 to: email,
                 subject: 'Sending password to book-list',
                 text: 'your password is:' + savePassword

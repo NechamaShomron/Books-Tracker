@@ -11,18 +11,25 @@ export class ListComponent implements OnInit {
   headElements = ['#', 'Author', 'Book Name', 'Date', 'Genre', 'Rank', 'Edit'];
   bookList : any =  [];
   constructor(private bookService: BooksService) {
+    this.seeList();
+
   }
 
   ngOnInit(): void {
+  }
+
+  seeList(){
     this.bookService.seeList().subscribe((res: any) => {
       this.bookList = res;
     });
   }
-  
+
   onDelete(book: any){
     this.bookService.deleteBook(book).subscribe((res: any) => {
+
     }, (err: any) => console.log(err));
-    this.ngOnInit();
+    this.seeList();
+
   }
 }
 

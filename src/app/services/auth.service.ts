@@ -10,11 +10,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  // tslint:disable-next-line:typedef
   onLogin(user: any): any {
     return this.http.post(this.loginUrl, user);
   }
-  // tslint:disable-next-line:typedef
   loggedIn() {
     return !!localStorage.getItem('token');
   }
