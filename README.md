@@ -2,6 +2,8 @@
 
 This project was developed with angular, typescript, node js, express and mongoDB.
 
+*Dont forget to re-install node-modules.
+
 Generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
 
 ## Development server
