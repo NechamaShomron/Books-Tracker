@@ -1,6 +1,6 @@
 # BookList
 
-This project was developed with angular,typescript, node js, express and mongoDB.
+This project was developed with angular, typescript, node js, express and mongoDB.
 
 Generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
 
